@@ -5,8 +5,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.sample.dao.Author;
-import com.sample.dao.AuthorDao;
+import com.sample.dao.Book;
+import com.sample.dao.BookDao;
 
 public class Main {
 
@@ -24,7 +24,7 @@ public class Main {
 		// author.setName("test");
 		// author.setName("hoge");
 
-		AuthorDao dao = session.getMapper(AuthorDao.class);
+		// AuthorDao dao = session.getMapper(AuthorDao.class);
 		// dao.insert(author);
 		// dao.update(author);
 		// dao.delete(1);
@@ -43,8 +43,16 @@ public class Main {
 //		}
 
 		// Author author = new Author();
-		Author author = dao.findByPrimarykey(3);
-		System.out.println(author.getName());
+		// 1件検索
+//		Author author = dao.findByPrimarykey(3);
+//		System.out.println(author.getName());
+
+		BookDao dao = session.getMapper(BookDao.class);
+		Book book = new Book();
+		book.setId(1);
+		book.setTitle("test title");
+		book.setAuthorId(1);
+		dao.insert(book);
 
 		session.commit();
 
