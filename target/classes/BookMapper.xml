@@ -10,4 +10,13 @@
 		<result column="author" property="authorId"/>
 	</resultMap>
 
+	<!-- AuthorとJoin -->
+	<resultMap type="com.sample.dao.Book" id="bookResultJoinAuthor" extends="bookResult">
+		<!-- ManyToOneの場合 -->
+		<association property="author" javaType="com.sample.dao.Author">
+			<result column="id" property="id"/>
+		<result column="name" property="name"/>
+		</association>
+	</resultMap>
+
 </mapper>

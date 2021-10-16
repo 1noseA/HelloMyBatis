@@ -5,6 +5,7 @@ public class Book {
 	private int id;
 	private String title;
 	private int authorId;
+	private Author author;
 
 	public int getId() {
 		return id;
@@ -23,6 +24,12 @@ public class Book {
 	}
 	public void setAuthorId(int authorId) {
 		this.authorId = authorId;
+	}
+	public Author getAuthor() {
+		return author;
+	}
+	public void setAuthor(Author author) {
+		this.author = author;
 	}
 
 }

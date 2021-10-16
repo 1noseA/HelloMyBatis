@@ -9,8 +9,12 @@ public interface BookDao {
 	@Insert("insert into book values (#{id}, #{title}, #{authorId})")
 	public void insert(Book book);
 
-	@ResultMap("bookResult")
-	@Select("select * from book where id = #{id}")
+//	@ResultMap("bookResult")
+//	@Select("select * from book where id = #{id}")
+//	public Book findByPrimarykey(int id);
+
+	@ResultMap("bookResultJoinAuthor")
+	@Select("select * from book b join author a on b.author = a.id where b.id = #{id}")
 	public Book findByPrimarykey(int id);
 
 }
