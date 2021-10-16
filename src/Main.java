@@ -21,10 +21,12 @@ public class Main {
 
 		Author author = new Author();
 		author.setId(1);
-		author.setName("test");
+		// author.setName("test");
+		author.setName("hoge");
 
 		AuthorDao dao = session.getMapper(AuthorDao.class);
-		dao.insert(author);
+		// dao.insert(author);
+		dao.update(author);
 
 		session.commit();
 
