@@ -48,11 +48,14 @@ public class Main {
 //		System.out.println(author.getName());
 
 		BookDao dao = session.getMapper(BookDao.class);
-		Book book = new Book();
-		book.setId(1);
-		book.setTitle("test title");
-		book.setAuthorId(1);
-		dao.insert(book);
+//		Book book = new Book();
+//		book.setId(4);
+//		book.setTitle("test title4");
+//		book.setAuthorId(3);
+//		dao.insert(book);
+
+		Book book = dao.findByPrimarykey(3);
+		System.out.println(book.getAuthorId());
 
 		session.commit();
 
