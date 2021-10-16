@@ -1,7 +1,11 @@
 package com.sample.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 public interface AuthorDao {
@@ -14,5 +18,9 @@ public interface AuthorDao {
 
 	@Delete("delete from author where id = #{id}")
 	public void delete(int id);
+
+	@ResultMap("authorResult")
+	@Select("select * from author")
+	public List<Author> findAll();
 
 }

@@ -1,4 +1,5 @@
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -29,11 +30,16 @@ public class Main {
 		// dao.update(author);
 		// dao.delete(1);
 
-		for (int i = 1; i < 10; i++) {
-			Author author = new Author();
-			author.setId(i);
-			author.setName("test" + i);
-			dao.insert(author);
+//		for (int i = 1; i < 10; i++) {
+//			Author author = new Author();
+//			author.setId(i);
+//			author.setName("test" + i);
+//			dao.insert(author);
+//		}
+
+		List<Author> list = dao.findAll();
+		for (Author author : list) {
+			System.out.println(author.getName());
 		}
 
 		session.commit();
