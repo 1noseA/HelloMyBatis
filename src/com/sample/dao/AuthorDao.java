@@ -1,5 +1,6 @@
 package com.sample.dao;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Update;
 
@@ -10,5 +11,8 @@ public interface AuthorDao {
 
 	@Update("update author set name = #{name} where id = #{id}")
 	public void update(Author author);
+
+	@Delete("delete from author where id = #{id}")
+	public void delete(int id);
 
 }
