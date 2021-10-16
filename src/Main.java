@@ -1,5 +1,4 @@
 import java.io.InputStream;
-import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -37,10 +36,15 @@ public class Main {
 //			dao.insert(author);
 //		}
 
-		List<Author> list = dao.findAll();
-		for (Author author : list) {
-			System.out.println(author.getName());
-		}
+		// 全検索
+//		List<Author> list = dao.findAll();
+//		for (Author author : list) {
+//			System.out.println(author.getName());
+//		}
+
+		// Author author = new Author();
+		Author author = dao.findByPrimarykey(3);
+		System.out.println(author.getName());
 
 		session.commit();
 

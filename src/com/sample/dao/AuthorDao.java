@@ -23,4 +23,8 @@ public interface AuthorDao {
 	@Select("select * from author")
 	public List<Author> findAll();
 
+	@ResultMap("authorResult")
+	@Select("select * from author where id = #{id}")
+	public Author findByPrimarykey(int id);
+
 }
