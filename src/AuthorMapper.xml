@@ -9,4 +9,15 @@
 		<result column="name" property="name"/>
 	</resultMap>
 
+	<resultMap type="com.sample.dao.Author" id="authorResultJoinBook">
+		<!-- 今回はextendsしないで上をコピーする -->
+		<result column="authorId" property="id"/>
+		<result column="name" property="name"/>
+		<!-- OneToManyの場合 -->
+		<collection property="bookList" ofType="com.sample.dao.Book">
+			<result column="bookId" property="id"/>
+			<result column="title" property="title"/>
+		</collection>
+	</resultMap>
+
 </mapper>
